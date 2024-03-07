@@ -13,7 +13,8 @@ const ContactForm = ({}) => {
             lastName,
             email
         }
-        const url = "http://127.0.0.1/5000/create_contact"
+        // const url = "http://127.0.0.1:5000/" + (updating ? `update_contact/${existingContact.id}` : "create_contact")
+        const url = "http://127.0.0.1:5000/" + (false ? `update_contact/${1}` : "create_contact")
         const options = {
             method: "POST",
             headers: {
