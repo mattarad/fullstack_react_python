@@ -15,7 +15,10 @@ def create_contact():
     email = request.json.get("email")
 
     if not first_name or not last_name or not email:
-        return jsonify({"message": "you must include a first name, last name and email"}), 400
+        return (
+            jsonify({"message": "You must include a first name, last name and email"}),
+            400,
+        )
     
     new_contact = Contact(first_name=first_name, last_name=last_name, email=email)
 
@@ -25,7 +28,8 @@ def create_contact():
     except Exception as e:
         return jsonify({"message": str(e)}), 400
     
-    return jsonify({"message", "User created!"}), 201
+    return jsonify({"message": "User created!"}), 201
+
 
 @app.route("/update_contact/<int:user_id>", methods=["PATCH"])
 def update_contact(user_id):
